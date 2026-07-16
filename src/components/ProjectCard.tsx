@@ -1,12 +1,6 @@
 import type { Project } from '../types';
-
-const proofClass: Record<string, string> = {
-  live: 'bg-green-100 text-green-800',
-  screenshot: 'bg-blue-100 text-blue-800',
-  award: 'bg-amber-100 text-amber-800',
-  doc: 'bg-purple-100 text-purple-800',
-  article: 'bg-red-100 text-red-800',
-};
+import { motion } from 'framer-motion';
+import { ArrowUpRight, ExternalLink } from 'lucide-react';
 
 interface Props {
   project: Project;
@@ -15,53 +9,111 @@ interface Props {
 
 export default function ProjectCard({ project, onClick }: Props) {
   return (
-    <div
+    <motion.div
       onClick={onClick}
-      className="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden cursor-pointer transition-all hover:-translate-y-1 hover:shadow-xl hover:border-blue-500 group"
+      whileHover={{ y: -12, scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className="bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-2xl overflow-hidden cursor-pointer transition-all hover:border-zinc-600 hover:shadow-2xl hover:shadow-blue-500/10 group relative"
     >
-      <div className={`h-44 bg-gradient-to-br ${project.coverColor} flex items-center justify-center relative`}>
-        <span className="text-5xl">{project.coverEmoji}</span>
-        <span className="absolute top-3 right-3 bg-black/40 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full uppercase tracking-wide">
-          {project.label}
-        </span>
+      {/* Hover Glow Effect */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        initial={false}
+      />
+      
+      {/* Image Section */}
+      <div className="relative h-64 overflow-hidden">
+        {project.images.length > 0 ? (
+          <motion.img
+            src={project.images[0]}
+            alt={project.title}
+            className="w-full h-full object-cover"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          />
+        ) : (
+          <div className={`h-full bg-gradient-to-br ${project.coverColor} flex items-center justify-center`}>
+            <motion.span 
+              className="text-7xl"
+              whileHover={{ scale: 1.2, rotate: 10 }}
+              transition={{ duration: 0.3 }}
+            >
+              {project.coverEmoji}
+            </motion.span>
+          </div>
+        )}
+        
+        {/* Overlay on Hover */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          initial={false}
+        />
+        
+        {/* View Project Button on Hover */}
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          initial={false}
+        >
+          <motion.div
+            className="bg-white text-zinc-950 px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <ExternalLink className="w-4 h-4" />
+            View Project
+          </motion.div>
+        </motion.div>
       </div>
 
-      <div className="p-5">
-        <h3 className="font-['Sora'] text-base font-bold text-[#0F172A] mb-1 leading-tight">{project.title}</h3>
-        <p className="text-xs text-[#64748B] mb-4">{project.org}</p>
-
-        <div className="flex border border-[#E2E8F0] rounded-lg overflow-hidden mb-4">
-          {[
-            { label: 'Problem', text: project.problem.slice(0, 50) + '...' },
-            { label: 'Solution', text: project.solution.slice(0, 50) + '...' },
-            { label: 'Result', text: project.result.slice(0, 50) + '...' },
-          ].map((item, i) => (
-            <div key={i} className={`flex-1 p-2 text-center ${i < 2 ? 'border-r border-[#E2E8F0]' : ''}`}>
-              <div className="text-[9px] font-bold text-[#94A3B8] uppercase tracking-wider mb-1">{item.label}</div>
-              <div className="text-[10px] text-[#0F172A] font-medium leading-tight">{item.text}</div>
-            </div>
-          ))}
+      {/* Content Section */}
+      <div className="relative p-6">
+        <div className="flex items-start justify-between mb-3">
+          <div>
+            <motion.span 
+              className="text-zinc-500 text-[10px] font-bold tracking-[0.15em] uppercase block mb-1"
+              whileHover={{ color: '#3b82f6' }}
+              transition={{ duration: 0.2 }}
+            >
+              {project.org}
+            </motion.span>
+            <h3 className="font-['Sora'] text-xl font-extrabold text-white mt-1 leading-tight group-hover:text-blue-400 transition-colors duration-300">
+              {project.title}
+            </h3>
+          </div>
+          <motion.span 
+            className="text-zinc-600 group-hover:text-blue-400 transition-colors"
+            whileHover={{ rotate: 45, scale: 1.2 }}
+            transition={{ duration: 0.2 }}
+          >
+            <ArrowUpRight className="w-5 h-5" />
+          </motion.span>
         </div>
-
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {project.tools.slice(0, 4).map((tool) => (
-            <span key={tool} className="bg-blue-50 text-blue-700 text-[11px] font-semibold px-2 py-0.5 rounded">
+        
+        <motion.p 
+          className="text-zinc-400 text-sm mb-4 line-clamp-2 group-hover:text-zinc-300 transition-colors duration-300"
+        >
+          {project.problem}
+        </motion.p>
+        
+        <div className="flex flex-wrap gap-2">
+          {project.tools.slice(0, 3).map((tool, index) => (
+            <motion.span 
+              key={tool} 
+              className="bg-zinc-800 text-zinc-300 text-[11px] font-semibold px-2.5 py-1 rounded border border-zinc-700 group-hover:border-zinc-600 transition-colors"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ 
+                backgroundColor: 'rgba(59, 130, 246, 0.2)', 
+                borderColor: '#3b82f6',
+                color: '#60a5fa'
+              }}
+            >
               {tool}
-            </span>
+            </motion.span>
           ))}
         </div>
       </div>
-
-      <div className="px-5 pb-4 border-t border-[#E2E8F0] pt-3 flex items-center justify-between">
-        <div className="flex gap-1.5 flex-wrap">
-          {project.proof.map((p) => (
-            <span key={p.label} className={`text-[10px] font-semibold px-2 py-1 rounded ${proofClass[p.type]}`}>
-              {p.label}
-            </span>
-          ))}
-        </div>
-        <span className="text-xs font-semibold text-blue-600 group-hover:translate-x-1 transition-transform">View →</span>
-      </div>
-    </div>
+    </motion.div>
   );
 }

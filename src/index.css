@@ -1,37 +1,37 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  font-family: 'Inter', sans-serif;
-  color: #0f172a;
-  background-color: #f0f4f8;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.dark {
+  --bg-primary: #09090b;
+  --bg-secondary: #18181b;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --border-color: #27272a;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
-html {
-  scroll-behavior: smooth;
+.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f4f4f5;
+  --text-primary: #09090b;
+  --text-secondary: #71717a;
+  --border-color: #e4e4e7;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
-body {
+html, body {
+  transition: background-color 0.3s, color 0.3s;
   margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-  background: #f0f4f8;
-}
-
-#root {
+  padding: 0;
   min-height: 100vh;
 }
 
-@layer base {
-  body {
-    font-family: 'Inter', sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  h1, h2, h3 {
-    font-family: 'Sora', sans-serif;
+/* Hide default cursor for our custom one */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none !important;
   }
 }
