@@ -1,9 +1,8 @@
-import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import RotatingText from '../components/RotatingText';
-import { useTheme } from '../context/ThemeContext';
 
 const Home = () => {
   const { theme } = useTheme();
@@ -21,10 +20,8 @@ const Home = () => {
 
   const item = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: ("easeOut" as any) } },
   };
-
-  const bgPrimary = theme === 'dark' ? 'bg-zinc-950' : 'bg-white';
   const textPrimary = theme === 'dark' ? 'text-zinc-100' : 'text-zinc-900';
   const textSecondary = theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600';
   const borderColor = theme === 'dark' ? 'border-zinc-700' : 'border-zinc-300';

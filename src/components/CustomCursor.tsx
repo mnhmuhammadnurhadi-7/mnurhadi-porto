@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { FC } from 'react';
 import { useTheme } from '../context/ThemeContext';
 
-const CustomCursor: React.FC = () => {
+const CustomCursor: FC = () => {
   const { theme } = useTheme();
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isHovering, setIsHovering] = useState(false);

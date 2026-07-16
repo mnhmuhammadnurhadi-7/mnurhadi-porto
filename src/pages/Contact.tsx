@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageSquare } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
@@ -18,10 +17,8 @@ const Contact = () => {
 
   const item = {
     hidden: { opacity: 0, scale: 0.9 },
-    show: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } },
+    show: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: ("easeOut" as any) } },
   };
-
-  const bgPrimary = theme === 'dark' ? 'bg-zinc-950' : 'bg-white';
   const bgSecondary = theme === 'dark' ? 'bg-zinc-900' : 'bg-zinc-100';
   const textPrimary = theme === 'dark' ? 'text-zinc-100' : 'text-zinc-900';
   const textSecondary = theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600';

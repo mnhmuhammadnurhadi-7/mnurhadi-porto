@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import type { FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
-const RotatingText: React.FC = () => {
+const RotatingText: FC = () => {
   const [index, setIndex] = useState(0);
   const { theme } = useTheme();
 

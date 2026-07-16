@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { projects } from '../data/projects';
@@ -22,10 +22,9 @@ const Projects = () => {
 
   const item = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: ("easeOut" as any) } },
   };
-
-  const bgPrimary = theme === 'dark' ? 'bg-zinc-950' : 'bg-white';
+  
   const bgSecondary = theme === 'dark' ? 'bg-zinc-900' : 'bg-zinc-100';
   const textPrimary = theme === 'dark' ? 'text-zinc-100' : 'text-zinc-900';
   const textSecondary = theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600';
@@ -59,7 +58,7 @@ const Projects = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               variants={item}

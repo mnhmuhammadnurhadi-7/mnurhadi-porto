@@ -29,7 +29,7 @@ export default function ProjectCard({ project, onClick }: Props) {
             alt={project.title}
             className="w-full h-full object-cover"
             whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6, ease: ("easeOut" as any) }}
           />
         ) : (
           <div className={`h-full bg-gradient-to-br ${project.coverColor} flex items-center justify-center`}>

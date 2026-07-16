@@ -103,7 +103,7 @@ const AnimatedBackground = () => {
           transition={{
             duration: bubble.duration,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: ("easeInOut" as any),
             delay: bubble.delay,
           }}
         />
@@ -128,7 +128,7 @@ const AnimatedBackground = () => {
           transition={{
             duration: shape.duration,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: ("easeInOut" as any),
             delay: shape.delay,
           }}
         >

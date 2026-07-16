@@ -24,7 +24,7 @@ export default function Hero() {
         transition={{
           duration: 8,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: ("easeInOut" as any)
         }}
       />
       <motion.div 
@@ -37,7 +37,7 @@ export default function Hero() {
         transition={{
           duration: 10,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: ("easeInOut" as any),
           delay: 1
         }}
       />
@@ -50,7 +50,7 @@ export default function Hero() {
         transition={{
           duration: 6,
           repeat: Infinity,
-          ease: "easeInOut"
+          ease: ("easeInOut" as any)
         }}
       />
 
@@ -125,7 +125,7 @@ export default function Hero() {
         >
           <motion.div
             animate={{ rotate: [0, 360] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 3, repeat: Infinity, ease: ("linear" as any) }}
           >
             <Sparkles className="w-6 h-6 text-yellow-400" />
           </motion.div>
@@ -134,7 +134,7 @@ export default function Hero() {
           </p>
           <motion.div
             animate={{ rotate: [0, -360] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 3, repeat: Infinity, ease: ("linear" as any) }}
           >
             <Zap className="w-6 h-6 text-blue-400" />
           </motion.div>
@@ -175,7 +175,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes gridMove {
           0% { background-position: 0 0; }
           100% { background-position: 60px 60px; }

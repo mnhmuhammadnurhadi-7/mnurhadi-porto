@@ -1,4 +1,4 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
@@ -6,7 +6,7 @@ import AnimatedBackground from './AnimatedBackground';
 import CustomCursor from './CustomCursor';
 import { useTheme } from '../context/ThemeContext';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
 
@@ -72,7 +72,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+            transition={{ duration: 0.4, ease: ("easeInOut" as any) }}
           >
             {children}
           </motion.div>

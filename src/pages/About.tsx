@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
@@ -44,10 +43,8 @@ const About = () => {
 
   const item = {
     hidden: { opacity: 0, x: -30 },
-    show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: ("easeOut" as any) } },
   };
-
-  const bgPrimary = theme === 'dark' ? 'bg-zinc-950' : 'bg-white';
   const bgSecondary = theme === 'dark' ? 'bg-zinc-900' : 'bg-zinc-100';
   const textPrimary = theme === 'dark' ? 'text-zinc-100' : 'text-zinc-900';
   const textSecondary = theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600';
@@ -78,7 +75,7 @@ const About = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
-          {skillGroups.map((group, index) => (
+          {skillGroups.map((group) => (
             <motion.div
               key={group.title}
               variants={item}
