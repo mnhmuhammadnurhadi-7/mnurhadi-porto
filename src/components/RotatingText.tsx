@@ -7,7 +7,7 @@ const RotatingText: FC = () => {
   const [index, setIndex] = useState(0);
   const { theme } = useTheme();
 
-  const texts = ['Tutor', 'SEO Expert', 'Project Manager', 'System Analyst', 'Vicoder'];
+  const texts = ['Tutor', 'SEO Expert', 'Project Manager', 'System Analyst', 'Vibecoder'];
 
   useEffect(() => {
     const timer = setInterval(() => {
