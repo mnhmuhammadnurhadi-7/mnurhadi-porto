@@ -21,7 +21,7 @@ export default function FloatingIcons({
   ];
 
   return (
-    <div className="absolute inset-0 pointer-events-none hidden md:block">
+    <div className="absolute inset-0 pointer-events-none">
       {icons.map((icon, index) => {
         const colors = [
           'text-blue-400',
