@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ZoomIn } from 'lucide-react';
 import type { Project } from '../types';
 import { useTheme } from '../context/ThemeContext';
 
@@ -19,6 +19,7 @@ interface Props {
 
 export default function ProjectModal({ project, onClose }: Props) {
   const { theme } = useTheme();
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const bgPrimary = theme === 'dark' ? 'bg-zinc-950' : 'bg-white';
   const bgSecondary = theme === 'dark' ? 'bg-zinc-900' : 'bg-zinc-100';
@@ -90,13 +91,20 @@ export default function ProjectModal({ project, onClose }: Props) {
                 <div className={`text-[11px] font-bold text-zinc-500 uppercase tracking-[0.2em] mb-3`}>Documentation</div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {project.images.map((img, i) => (
-                    <img
+                    <div
                       key={i}
-                      src={img}
-                      alt={`${project.title} screenshot ${i + 1}`}
-                      className="rounded-lg w-full h-40 object-cover border border-zinc-700 cursor-pointer hover:opacity-90 transition-opacity"
-                      onClick={() => window.open(img, '_blank')}
-                    />
+                      className="relative group cursor-pointer"
+                      onClick={() => setSelectedImage(img)}
+                    >
+                      <img
+                        src={img}
+                        alt={`${project.title} screenshot ${i + 1}`}
+                        className="rounded-lg w-full h-40 object-cover border border-zinc-700 hover:opacity-90 transition-opacity"
+                      />
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <ZoomIn className="w-8 h-8 text-white" />
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
@@ -130,6 +138,40 @@ export default function ProjectModal({ project, onClose }: Props) {
           </div>
         </motion.div>
       </motion.div>
+
+      {/* Image Viewer Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[1100] flex items-center justify-center p-6 bg-black/90 backdrop-blur-md"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative max-w-5xl max-h-[90vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage}
+                alt="Full size view"
+                className="max-w-full max-h-[85vh] object-contain rounded-lg"
+              />
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 w-12 h-12 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center text-white transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </AnimatePresence>
   );
 }

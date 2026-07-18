@@ -1,9 +1,19 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles, Zap } from 'lucide-react'
+import DotGrid from './decor/DotGrid'
+import FloatingBlobs from './decor/FloatingBlobs'
+import DiagonalLines from './decor/DiagonalLines'
+import FloatingIcons from './decor/FloatingIcons'
 
 export default function Hero() {
   return (
     <section className="min-h-[90vh] flex items-center justify-center px-6 md:px-10 py-24 relative overflow-hidden">
+      {/* Decorative Background Layers */}
+      <DotGrid />
+      <FloatingBlobs />
+      <DiagonalLines />
+      <FloatingIcons />
+      
       {/* Animated Grid Background */}
       <div className="absolute inset-0 opacity-10"
         style={{

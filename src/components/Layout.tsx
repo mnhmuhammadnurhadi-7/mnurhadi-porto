@@ -4,6 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 import AnimatedBackground from './AnimatedBackground';
 import CustomCursor from './CustomCursor';
+import DotGrid from './decor/DotGrid';
+import FloatingBlobs from './decor/FloatingBlobs';
+import DiagonalLines from './decor/DiagonalLines';
+import FloatingIcons from './decor/FloatingIcons';
 import { useTheme } from '../context/ThemeContext';
 
 const Layout = ({ children }: { children: ReactNode }) => {
@@ -25,9 +29,15 @@ const Layout = ({ children }: { children: ReactNode }) => {
   const navBg = theme === 'dark' ? 'bg-zinc-950/80' : 'bg-white/80';
 
   return (
-    <div className={`min-h-screen ${bgPrimary} ${textPrimary} relative transition-colors duration-300`}>
+    <div className={`min-h-screen ${bgPrimary} ${textPrimary} relative transition-colors duration-300 overflow-hidden`}>
       <AnimatedBackground />
       <CustomCursor />
+      
+      {/* Decorative Background Layers - persistent across all pages */}
+      <DotGrid />
+      <FloatingBlobs />
+      <DiagonalLines />
+      <FloatingIcons />
       <motion.nav
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
