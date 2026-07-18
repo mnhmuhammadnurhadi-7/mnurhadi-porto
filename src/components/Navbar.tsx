@@ -9,7 +9,7 @@ export default function Navbar() {
       className="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800 px-6 md:px-10 flex items-center justify-between h-16"
     >
       <span className="font-['Sora'] font-extrabold text-white text-lg tracking-tight">
-        MNH
+        MNH Portofolio
       </span>
       <ul className="flex gap-6 md:gap-8 list-none">
         {['Projects', 'Skills', 'Certifications', 'Contact'].map((item) => (
