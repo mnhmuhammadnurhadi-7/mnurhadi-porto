@@ -22,12 +22,18 @@ const Home = () => {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: ("easeOut" as any) } },
   };
-  const textPrimary = theme === 'dark' ? 'text-zinc-100' : 'text-zinc-900';
-  const textSecondary = theme === 'dark' ? 'text-zinc-400' : 'text-zinc-600';
+
+  // Gradient khusus teks
+  const textGradient =
+    theme === 'dark'
+      ? 'bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 text-transparent bg-clip-text'
+      : 'bg-gradient-to-r from-[#FF6B6B] via-[#6B5BFF] to-[#00C9A7] text-transparent bg-clip-text';
+
+  // Warna border tetap solid, bukan gradient
   const borderColor = theme === 'dark' ? 'border-zinc-700' : 'border-zinc-300';
 
   return (
-    <div className={`min-h-screen pt-24 pb-16 px-6 md:px-10 flex flex-col items-center justify-center transition-colors duration-300`}>
+    <div className="min-h-screen pt-24 pb-16 px-6 md:px-10 flex flex-col items-center justify-center transition-colors duration-300">
       <motion.div
         variants={container}
         initial="hidden"
@@ -35,7 +41,9 @@ const Home = () => {
         className="max-w-5xl w-full"
       >
         <motion.div variants={item}>
-          <div className={`inline-flex items-center gap-2 border ${borderColor} ${textSecondary} text-xs font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-[0.2em] transition-colors duration-300`}>
+          <div
+            className={`inline-flex items-center gap-2 border ${borderColor} text-xs font-semibold px-4 py-1.5 rounded-full mb-8 uppercase tracking-[0.2em] transition-colors duration-300`}
+          >
             <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
             Available for Remote Work
           </div>
@@ -43,7 +51,7 @@ const Home = () => {
 
         <motion.h1
           variants={item}
-          className={`font-['Sora'] text-5xl md:text-7xl font-extrabold leading-[0.9] tracking-tight mb-8 ${textPrimary} transition-colors duration-300`}
+          className={`font-['Sora'] text-5xl md:text-7xl font-extrabold leading-[0.9] tracking-tight mb-8 ${textGradient} transition-colors duration-300`}
         >
           Hi, I'm Muhammad Nur Hadi
           <br />
@@ -52,9 +60,10 @@ const Home = () => {
 
         <motion.p
           variants={item}
-          className={`${textSecondary} text-lg md:text-xl leading-relaxed max-w-2xl mb-12 transition-colors duration-300`}
+          className={`text-lg md:text-xl leading-relaxed max-w-2xl mb-12 transition-colors duration-300 ${textGradient}`}
         >
-          Digital Project Coordinator & System Analyst, bridging technical execution and strategic coordination to ship impactful products.
+          Digital Project Coordinator & System Analyst, bridging technical execution and strategic
+          coordination to ship impactful products.
         </motion.p>
 
         <motion.div variants={item} className="flex flex-wrap gap-4">
@@ -67,7 +76,9 @@ const Home = () => {
           </Link>
           <Link
             to="/about"
-            className={`inline-flex items-center gap-2 border ${borderColor} ${textSecondary} text-sm font-bold px-8 py-4 rounded-xl hover:${theme === 'dark' ? 'bg-zinc-900' : 'bg-zinc-100'} transition-all`}
+            className={`inline-flex items-center gap-2 border ${borderColor} text-sm font-bold px-8 py-4 rounded-xl hover:${
+              theme === 'dark' ? 'bg-zinc-900' : 'bg-zinc-100'
+            } transition-all ${textGradient}`}
           >
             About Me
           </Link>

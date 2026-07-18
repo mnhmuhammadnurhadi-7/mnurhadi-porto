@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 import AnimatedBackground from './AnimatedBackground';
-import CustomCursor from './CustomCursor';
 import DotGrid from './decor/DotGrid';
 import FloatingBlobs from './decor/FloatingBlobs';
 import DiagonalLines from './decor/DiagonalLines';
@@ -31,7 +30,6 @@ const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className={`min-h-screen ${bgPrimary} ${textPrimary} relative transition-colors duration-300 overflow-hidden`}>
       <AnimatedBackground />
-      <CustomCursor />
       
       {/* Decorative Background Layers - persistent across all pages */}
       <DotGrid />
