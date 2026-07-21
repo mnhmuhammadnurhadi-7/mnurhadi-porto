@@ -6,7 +6,6 @@ import dstudio2 from '../assets/DStudio/layanan_page.png';
 import dstudio3 from '../assets/DStudio/cms_page.png';
 
 // BEM Vokasi
-import bem1 from '../assets/BemVokasi/lofi.png';
 import bem2 from '../assets/BemVokasi/design_high_vid.png';
 import bem3 from '../assets/BemVokasi/alur_sistem.png';
 import bem4 from '../assets/BemVokasi/early_live.png';
@@ -71,7 +70,7 @@ export const projects: Project[] = [
     process: 'Began with requirement gathering from stakeholders, created system architecture and user flow diagrams, designed wireframes and high-fidelity prototypes, coordinated Frontend, Backend, and QC team members.',
     result: 'Delivered a complete design system, system flow documentation, and Figma prototype. Website reached early live stage.',
     tools: ['Figma', 'System Flow Design', 'Wireframing', 'Prototyping', 'Project Coordination'],
-    images: [bem1, bem2, bem3, bem4],
+    images: [bem4, bem2, bem3],
     proof: [
       { type: 'screenshot', label: '📸 Figma Design' },
       { type: 'doc', label: '📄 System Flow' },
@@ -152,7 +151,7 @@ export const projects: Project[] = [
     process: 'Conducted keyword research to identify ranking opportunities, structured the article for both readability and SEO, published on Jurnalpost, and monitored keyword positions post-publication.',
     result: 'Article ranks on Page 1 of Google Search for multiple keyword combinations including "pendidikan berkualitas era AI" and "SDGs 4 era AI" — demonstrating practical, measurable SEO execution.',
     tools: ['SEO Writing', 'Keyword Research', 'On-Page SEO', 'Content Strategy', 'Google Search'],
-    images: [thailand1, thailand2, thailand3],
+    images: [thailand3, thailand2, thailand1],
     proof: [
       { type: 'article', label: '📰 Live Article', url: 'https://jurnalpost.com/read/sdgs-4-pendidikan-yang-berkualitas-di-era-ai/20699/' },
       { type: 'screenshot', label: '📸 Google Page 1' },
