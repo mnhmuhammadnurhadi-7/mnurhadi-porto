@@ -100,7 +100,7 @@ export const projects: Project[] = [
   {
     id: 'siemens',
     title: 'Siemens Innovation Competition',
-    org: 'Competition · National Level · Finalist · Nov 2025',
+    org: 'Competition · National Level · Top 10 Qualified Presenter · Nov 2025',
     label: 'Competition',
     tagline: 'Qualified Presenter (Top 10) in national QC innovation challenge',
     date: 'Sept 2025',
@@ -119,7 +119,7 @@ export const projects: Project[] = [
   },
   {
     id: 'mdaq',
-    title: 'MDAQ — Qur\'anic App Design Competition',
+    title: 'MDAQ — Qur\'an App Design Competition',
     org: 'Competition · University Level· Finalist · Apr 2026',
     label: 'Competition',
     tagline: 'Finalist, Faculty of Vocational Studies delegate — Qur\'anic app design competition',
