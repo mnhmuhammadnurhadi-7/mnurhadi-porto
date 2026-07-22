@@ -24,6 +24,7 @@ import siemens3 from '../assets/Siemens/the_proposal.png';
 import mdaq1 from '../assets/MDAQ/pengumuman_finalis.jpg';
 import mdaq2 from '../assets/MDAQ/alursistem.png';
 import mdaq3 from '../assets/MDAQ/alurbelajar.png';
+import mdaq4 from '../assets/MDAQ/UIUX.png';
 
 // Thailand
 import thailand1 from '../assets/Thailand/google_ranking.png';
@@ -31,7 +32,6 @@ import thailand2 from '../assets/Thailand/artikel.png';
 import thailand3 from '../assets/Thailand/kegiatan.jpg';
 
 // Provoks
-import provoks1 from '../assets/Provoks/Pengurusan_google_form.png';
 import provoks2 from '../assets/Provoks/pengurusan_administratif_lpj.png';
 import provoks3 from '../assets/Provoks/pengurusan_spreadsheet.png';
 
@@ -100,7 +100,7 @@ export const projects: Project[] = [
   {
     id: 'siemens',
     title: 'Siemens Innovation Competition',
-    org: 'Competition · National Level · 2025',
+    org: 'Competition · National Level · Finalist · Nov 2025',
     label: 'Competition',
     tagline: 'Qualified Presenter (Top 10) in national QC innovation challenge',
     date: 'Sept 2025',
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     process: 'Led team strategy and division of responsibilities, designed the complete system flow and process architecture, created the full proposal documentation, and presented the technical and business case at the national level.',
     result: 'Reached Top 10 (Qualified Presenter) stage out of all competing teams nationally, presenting directly to Siemens judges.',
     tools: ['System Flow Design', 'Process Documentation', 'Technical Presentation', 'Team Leadership'],
-    images: [siemens1, siemens2, siemens3],
+    images: [siemens3, siemens2, siemens1],
     proof: [
       { type: 'award', label: '🏆 Qualified (Top 10)' },
       { type: 'doc', label: '📄 Proposal' },
@@ -119,19 +119,19 @@ export const projects: Project[] = [
   },
   {
     id: 'mdaq',
-    title: 'MDAQ Competition',
-    org: 'Competition · National Level · Feb 2026',
+    title: 'MDAQ — Qur\'anic App Design Competition',
+    org: 'Competition · University Level· Finalist · Apr 2026',
     label: 'Competition',
-    tagline: 'National Finalist in digital solution design competition',
-    date: 'Feb 2026',
+    tagline: 'Finalist, Faculty of Vocational Studies delegate — Qur\'anic app design competition',
+    date: 'Apr 2026',
     coverEmoji: '💡',
     coverColor: 'from-purple-900 to-purple-600',
-    problem: 'Complex digital challenge requiring innovative system design and user experience thinking under competition conditions with strict time constraints.',
-    solution: 'Led team to design a complete digital solution including system flow diagrams and UI/UX components, reaching the national finalist stage.',
+    problem: 'Design a digital application concept centered on Qur\'anic learning, requiring system design and UX thinking under competition time constraints as part of Universitas Brawijaya\'s internal MTQ (Qur\'an competition) event.',
+    solution: 'Led team to design a complete digital solution including system flow diagrams and UI/UX components, selected as Faculty of Vocational Studies delegate and advancing to the final round.',
     process: 'Directed overall team strategy, designed system flow architecture and learning flow diagrams, developed UI/UX components, and coordinated team deliverables to meet submission deadlines.',
-    result: 'Reached the national Finalist stage, demonstrating strong system thinking and leadership under competition conditions.',
+    result: 'Advanced to the Finalist stage as faculty delegate, demonstrating strong system thinking and leadership under competition conditions.',
     tools: ['System Flow Design', 'Figma', 'UI/UX Design', 'Team Leadership', 'Problem Solving'],
-    images: [mdaq1, mdaq2, mdaq3],
+    images: [mdaq3, mdaq2, mdaq4, mdaq1],
     proof: [
       { type: 'award', label: '🏆 Finalist' },
       { type: 'doc', label: '📄 System Design' },
@@ -171,7 +171,7 @@ export const projects: Project[] = [
     process: 'Created standardized Google Forms for various data collection needs, managed and organized datasets in Google Sheets ensuring accuracy, drafted formal letters and LPJ reports using Google Docs.',
     result: 'Established a reliable administrative system that improved data accessibility and documentation accuracy for the organization.',
     tools: ['Google Forms', 'Google Sheets', 'Google Docs', 'Data Management', 'Administrative Systems'],
-    images: [provoks1, provoks2, provoks3],
+    images: [provoks2, provoks3],
     proof: [{ type: 'screenshot', label: '📸 Documentation' }],
   },
 ];
