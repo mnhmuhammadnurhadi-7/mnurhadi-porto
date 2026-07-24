@@ -29,12 +29,6 @@ html, body {
   min-height: 100vh;
 }
 
-/* Use default browser cursor */
-@media (hover: hover) and (pointer: fine) {
-  * {
-    cursor: auto !important;
-  }
-}
 
 /* Hide scrollbar for horizontal scrolling */
 .scrollbar-hide {
