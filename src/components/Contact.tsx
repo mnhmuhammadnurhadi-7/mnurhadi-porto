@@ -10,7 +10,7 @@ export default function Contact() {
       color: "from-blue-500 to-cyan-500"
     },
     {
-      href: "https://wa.me/6285883797751",
+      href: "https://wa.me/6287842980770",
       icon: MessageSquare,
       label: "WhatsApp",
       color: "from-green-500 to-emerald-500"
